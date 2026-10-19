@@ -490,7 +490,7 @@ def chat_panel(result) -> None:
     sa = ai_status()
     who = (f'<span class="pw-chip ai">Answers by {esc(sa["text"].replace("AI: ", ""))}, using the agents\' '
            'exact results</span>' if sa["on"] and sa["ready"]
-           else '<span class="pw-chip">Rule-based answers (add an AI model on the Model Lab page)</span>')
+           else '<span class="pw-chip">Rule-based answers (no AI model is switched on)</span>')
     md(f'<div class="pw-chips">{who}{tip(h("chat"))}</div>')
     sugg = list(SUGGESTIONS)
     if ss.get("replay_ctx"):

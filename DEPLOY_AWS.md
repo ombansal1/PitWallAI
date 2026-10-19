@@ -33,10 +33,14 @@ Search **EC2** → **Launch instance**:
 | Image (AMI) | **Amazon Linux 2023** (default) |
 | Instance type | **t3.micro** (free-plan eligible; `t3.small` is smoother if your plan allows it) |
 | Key pair | **Create new key pair** → name `pitwall-key`, type RSA, format `.pem` → it downloads |
-| Network settings | Tick **Allow SSH traffic from: My IP** and **Allow HTTP traffic from the internet** |
+| Network settings | Tick **Allow SSH traffic from: Anywhere** and **Allow HTTP traffic from the internet** |
 | Storage | **16 GiB** gp3 |
 
 Press **Launch instance**, open the instance, and copy its **Public IPv4 address**.
+
+> **Why SSH from Anywhere?** GitHub's servers log in over SSH to update the app (step 8), and their addresses
+> change all the time. Login still needs your `.pem` key file (Amazon Linux doesn't allow passwords), so keep that
+> file private. If you don't want automatic updates, choose **My IP** instead.
 
 ## 3. Copy the project to the server
 
@@ -49,13 +53,18 @@ scp -i pitwall-key.pem pitwall_ai.zip ec2-user@YOUR_PUBLIC_IP:~
 
 Type `yes` if asked. (The first line makes Windows treat the key file as private, which `scp` requires.)
 
-> Prefer GitHub? Push the project to a **private** repository and `git clone` it on the server instead.
-> Never commit `.env` or `.streamlit/secrets.toml`.
+This first copy is only needed once. After that, GitHub updates the server for you (step 8).
 
 ## 4. Open a terminal on the server
 
-EC2 → select the instance → **Connect** → **EC2 Instance Connect** → **Connect**. A terminal opens in your
-browser. (Or from Command Prompt: `ssh -i pitwall-key.pem ec2-user@YOUR_PUBLIC_IP`.)
+From Command Prompt, in the folder with the key:
+
+```bat
+ssh -i pitwall-key.pem ec2-user@YOUR_PUBLIC_IP
+```
+
+Type `yes` the first time. You're in when the line starts with `[ec2-user@ip-...]$`; `exit` leaves. (The browser
+option, EC2 → **Connect** → **EC2 Instance Connect**, also works while SSH is allowed from Anywhere.)
 
 ## 5. Install Docker (one time)
 
@@ -93,15 +102,50 @@ The container restarts by itself if the server reboots. Decision records and rac
 kept in Docker volumes, so they survive restarts and rebuilds. FastF1 is already installed in the server image;
 it uses the server's internet connection, which EC2 allows by default.
 
-## 8. Update to a new version
+## 8. Automatic updates from GitHub
 
-Copy the new ZIP (step 3), then on the server:
+After this one-time setup, every `git push` to the `main` branch runs the tests on GitHub and, if they pass,
+copies the code to the server and rebuilds the app (about 3–6 minutes). The server's `.env` (your AI key),
+decision records and FastF1 downloads are kept. The workflow is `.github/workflows/deploy.yml`.
 
-```bash
-unzip -o pitwall_ai.zip
-cd pitwall_ai
-bash deploy/aws/deploy.sh
-```
+1. Put the project on GitHub (see "Put the project on GitHub" below).
+2. In the repository: **Settings → Secrets and variables → Actions → New repository secret**. Add two secrets:
+
+   | Name | Value |
+   |---|---|
+   | `EC2_HOST` | the server's Public IPv4 address, e.g. `52.62.188.157` |
+   | `EC2_SSH_KEY` | the whole content of `pitwall-key.pem` (open it in Notepad, select all, copy, paste) |
+
+3. Push any change, or open the **Actions** tab → **Test and deploy** → **Run workflow**. A green tick means the
+   site is updated.
+
+The server must already be set up once (steps 1–7), including the `.env` file. If you stop and start the server,
+its address changes: update the `EC2_HOST` secret too.
+
+### Put the project on GitHub
+
+1. Install **Git for Windows** (git-scm.com) and create an empty repository on github.com (no README, no
+   .gitignore). **Private** is safest.
+2. In Command Prompt, in the project folder:
+
+   ```bat
+   git init
+   git add .
+   git status
+   ```
+
+   Check that `.env`, `.streamlit/secrets.toml`, `.venv` and any `.pem` file are **not** in the list (the
+   `.gitignore` file keeps them out). Then:
+
+   ```bat
+   git commit -m "PitWall AI"
+   git branch -M main
+   git remote add origin https://github.com/YOUR_NAME/YOUR_REPO.git
+   git push -u origin main
+   ```
+
+   A browser window asks you to sign in to GitHub the first time.
+3. Later changes: `git add .`, `git commit -m "what changed"`, `git push`.
 
 ## 9. Stop the server when you're not using it
 
@@ -121,6 +165,13 @@ is finished.
 
 ## Troubleshooting
 
+- **"compose build requires buildx 0.17.0 or later":** the setup script installs it; if you set up the server
+  with an older copy of the project, run `bash deploy/aws/ec2-setup.sh` again, reconnect, and deploy.
+- **The GitHub workflow fails at "Set up the SSH key" or "Copy the code" (timeout):** SSH must be allowed from
+  Anywhere in the security group, the server must be running, and `EC2_HOST` must be its current address.
+- **"Permission denied (publickey)" in the workflow:** `EC2_SSH_KEY` must be the full `.pem` content, including the
+  `-----BEGIN` and `-----END` lines.
+
 - **The page doesn't load:** check the instance's Security group allows **HTTP port 80** from `0.0.0.0/0`,
   and that you used `http://` (not `https://`).
 - **Build stops or the server freezes on t3.micro:** the setup script adds 1 GB of swap; if it still struggles,
@@ -129,7 +180,8 @@ is finished.
   again. On the free Groq plan, many analyses in one minute can hit the rate limit; the rules take over
   automatically.
 - **Want only yourself or your teacher to open it?** In the security group, change the HTTP rule's source from
-  *Anywhere* to *My IP* (or your teacher's IP). Anyone who can open the page can use your Groq quota.
+  *Anywhere* to *My IP* (or your teacher's IP). Anyone who can open the page can use your Groq quota (but can't
+  see the key).
 
 ## Running the same container on your own PC (optional)
 

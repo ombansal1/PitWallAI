@@ -1,0 +1,75 @@
+# Every push to the main branch: run the tests, then (only if they pass) update the AWS server.
+# Needs two repository secrets (Settings -> Secrets and variables -> Actions):
+#   EC2_HOST     the server's public IPv4 address, e.g. 52.62.188.157
+#   EC2_SSH_KEY  the whole content of pitwall-key.pem
+# See DEPLOY_AWS.md, "Automatic updates from GitHub".
+name: Test and deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:        # "Run workflow" button on the Actions tab
+
+concurrency:
+  group: deploy-aws
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-optional.txt
+      - name: Install
+        run: pip install -r requirements.txt -r requirements-optional.txt
+      - name: Run the tests
+        run: python -m pytest
+
+  deploy:
+    needs: test
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      EC2_HOST: ${{ secrets.EC2_HOST }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the secrets are set
+        env:
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          if [ -z "$EC2_HOST" ] || [ -z "$EC2_SSH_KEY" ]; then
+            echo "::error::Add the EC2_HOST and EC2_SSH_KEY repository secrets (see DEPLOY_AWS.md)."
+            exit 1
+          fi
+
+      - name: Set up the SSH key
+        env:
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$EC2_SSH_KEY" | tr -d '\r' > ~/.ssh/ec2.pem
+          chmod 600 ~/.ssh/ec2.pem
+          ssh-keyscan -T 20 -H "$EC2_HOST" >> ~/.ssh/known_hosts
+
+      - name: Copy the code to the server
+        run: |
+          tar czf /tmp/pitwall_ai.tgz --exclude=.git --exclude=.github .
+          scp -i ~/.ssh/ec2.pem /tmp/pitwall_ai.tgz deploy/aws/update-from-ci.sh "ec2-user@${EC2_HOST}:/tmp/"
+
+      - name: Rebuild and restart the app
+        run: ssh -i ~/.ssh/ec2.pem "ec2-user@${EC2_HOST}" 'bash /tmp/update-from-ci.sh'
+
+
+      - name: Clean up
+        if: always()
+        run: rm -f ~/.ssh/ec2.pem

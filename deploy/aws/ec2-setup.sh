@@ -10,6 +10,12 @@ sudo mkdir -p /usr/local/lib/docker/cli-plugins
 sudo curl -sSL "https://github.com/docker/compose/releases/latest/download/docker-compose-linux-$(uname -m)" \
   -o /usr/local/lib/docker/cli-plugins/docker-compose
 sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+# docker buildx plugin (docker compose build needs buildx 0.17 or later; Amazon Linux's is older)
+BUILDX_VERSION=v0.19.3
+ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')
+sudo curl -sSL "https://github.com/docker/buildx/releases/download/${BUILDX_VERSION}/buildx-${BUILDX_VERSION}.linux-${ARCH}" \
+  -o /usr/local/lib/docker/cli-plugins/docker-buildx
+sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-buildx
 # 1 GB swap so a 1 GB t3.micro has headroom while building the image
 if [ ! -f /swapfile ]; then
   sudo dd if=/dev/zero of=/swapfile bs=1M count=1024 status=none

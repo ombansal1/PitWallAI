@@ -1,0 +1,8 @@
+# Keep line endings consistent between Windows and the Linux server.
+* text=auto
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.yml text eol=lf
+*.png binary
+*.jpg binary
+*.joblib binary

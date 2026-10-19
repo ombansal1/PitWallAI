@@ -132,30 +132,40 @@ def test_fastf1_option_hidden_when_not_installed(isolated_decision_log, monkeypa
     assert at.radio(key="w_source").options == ["Example scenarios", "Real races (2019–2026)"]
 
 
-def test_changing_the_ai_model_marks_results_stale(isolated_decision_log):
+def test_switching_the_ai_model_off_marks_results_stale(isolated_decision_log, fake_ai, monkeypatch):
+    from test_ai_agents import script
+    monkeypatch.setenv("PITWALL_AI_BASE_URL", fake_ai.url)
+    monkeypatch.setenv("GROQ_API_KEY", "gsk_env")
+    fake_ai.handler = script()
     at = analyze(start())
     assert not any("out of date" in w.value for w in at.warning)
     go(at, "model_lab")
-    at.selectbox(key="ai_provider").set_value("ollama").run()
+    at.toggle(key="ai_use").set_value(False).run()
     assert not at.exception
+    assert at.session_state["ai_provider"] == "rules"
     assert any("out of date" in w.value for w in at.warning)
 
 
-def test_ai_settings_and_connection_test(isolated_decision_log, fake_ai, monkeypatch):
-    from conftest import FakeAI
-    monkeypatch.setenv("PITWALL_AI_BASE_URL", fake_ai.url)
-    fake_ai.handler = lambda p: FakeAI.reply({"ok": True, "team_radio": "box box box box box"})
+def test_model_lab_has_no_key_or_provider_settings(isolated_decision_log, monkeypatch):
     at = start()
     go(at, "model_lab")
-    at.selectbox(key="ai_provider").set_value("groq").run()
-    assert at.session_state["ai_model"] == "openai/gpt-oss-120b"
-    assert any("Key missing" in m.value for m in at.markdown)
-    at.text_input(key="ai_key_input").set_value("gsk_test").run()
-    button(at, "Test connection").click().run()
     assert not at.exception
-    assert at.session_state["ai_test"]["ok"] is True
-    assert any("Connected to openai/gpt-oss-120b" in s.value for s in at.success)
-    assert fake_ai.requests[-1]["auth"] == "Bearer gsk_test"
+    assert not at.text_input                                   # nowhere to type a key
+    assert all(sb.key != "ai_provider" for sb in at.selectbox)
+    assert not any(b.label == "Test connection" for b in at.button)
+    assert all(t.key != "ai_use" for t in at.toggle)          # no AI configured: no switch either
+    assert any("No AI model is set up" in i.value for i in at.info)
+
+
+def test_configured_key_shows_model_and_switch(isolated_decision_log, fake_ai, monkeypatch):
+    monkeypatch.setenv("PITWALL_AI_BASE_URL", fake_ai.url)
+    monkeypatch.setenv("GROQ_API_KEY", "gsk_env")
+    at = start()
+    go(at, "model_lab")
+    assert not at.exception
+    assert at.toggle(key="ai_use").value is True
+    assert any("openai/gpt-oss-120b" in m.value for m in at.markdown)
+    assert not at.text_input
 
 
 def test_analysis_with_ai_model_and_ml_tyres(isolated_decision_log, fake_ai, monkeypatch):

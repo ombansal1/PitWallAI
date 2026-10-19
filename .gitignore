@@ -1,7 +1,27 @@
+# --- secrets: never commit these ---
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# --- Python ---
 .venv/
+venv/
 __pycache__/
+*.py[cod]
 .pytest_cache/
+*.egg-info/
+
+# --- data created while the app runs ---
 data/decisions/*.jsonl
 data/fastf1_cache/
-.env
-.streamlit/secrets.toml
+
+# --- editors, OS, archives ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.zip
+*.log

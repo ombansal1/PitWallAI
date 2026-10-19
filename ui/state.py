@@ -245,36 +245,35 @@ def stored_key(provider: str):
     return find_api_key(provider, _secrets(), _dotenv_path())
 
 
-def init_ai() -> None:
-    """Start with the AI model when a key is configured (Groq first), otherwise with the rules."""
-    ss = st.session_state
+def configured_provider() -> str:
+    """The AI provider set by whoever runs the site (key in secrets.toml / .env / environment), or 'rules'."""
     choice = os.environ.get("PITWALL_AI_PROVIDER", "").strip().lower()
-    if choice not in AI_CHOICES:
-        choice = next((p for p in ("groq", "gemini") if stored_key(p)[0]), "rules")
-    ss["ai_provider"] = choice
-    ss["ai_model"] = (PROVIDERS[choice] if choice in PROVIDERS else PROVIDERS[DEFAULT_PROVIDER]).default_model
-    ss["ai_key_input"] = ""
-    ss["ai_ollama_url"] = "http://localhost:11434"
-    ss["ai_test"] = None
+    if choice in AI_CHOICES:
+        return choice
+    return next((p for p in ("groq", "gemini") if stored_key(p)[0]), "rules")
 
 
-def on_ai_provider_change() -> None:
+def init_ai() -> None:
+    """Start with the AI model when the site has one configured, otherwise with the rules. Keys are never
+    typed on the page: they live in .streamlit/secrets.toml (your PC) or .env (the server)."""
     ss = st.session_state
-    p = ss.get("ai_provider", "rules")
-    if p in PROVIDERS:
-        ss["ai_model"] = PROVIDERS[p].default_model
-    ss["ai_key_input"] = ""
-    ss["ai_test"] = None
+    choice = configured_provider()
+    ss["ai_configured"] = choice
+    ss["ai_provider"] = choice
+    default = PROVIDERS[choice].default_model if choice in PROVIDERS else PROVIDERS[DEFAULT_PROVIDER].default_model
+    ss["ai_model"] = os.environ.get("PITWALL_AI_MODEL", "").strip() or default
+    ss["ai_use"] = choice != "rules"
+
+
+def on_ai_use_change() -> None:
+    """The visitor's only AI setting: use the configured AI model, or the rules."""
+    ss = st.session_state
+    ss["ai_provider"] = ss.get("ai_configured", "rules") if ss.get("ai_use") else "rules"
 
 
 def ai_key():
-    """(key, where): typed on the AI page (this browser session only) or stored configuration."""
-    ss = st.session_state
-    p = ss.get("ai_provider", "rules")
-    typed = (ss.get("ai_key_input") or "").strip()
-    if typed:
-        return typed, "typed on the Model Lab page (kept for this session only)"
-    return stored_key(p)
+    """(key, where) from the site's configuration; never from the page."""
+    return stored_key(st.session_state.get("ai_provider", "rules"))
 
 
 def reasoner():
@@ -284,7 +283,7 @@ def reasoner():
         return MockReasoner()
     base = os.environ.get("PITWALL_AI_BASE_URL") or None     # advanced: any OpenAI-compatible endpoint
     if p == "ollama" and not base:
-        base = (ss.get("ai_ollama_url") or "http://localhost:11434").rstrip("/") + "/v1"
+        base = os.environ.get("OLLAMA_URL", "http://localhost:11434").rstrip("/") + "/v1"
     return make_reasoner(p, model=ss.get("ai_model") or None, api_key=ai_key()[0], base_url=base)
 
 
@@ -298,18 +297,9 @@ def ai_status() -> Dict[str, Any]:
     model = ss.get("ai_model") or PROVIDERS[p].default_model
     if PROVIDERS[p].key_env and not key:
         return {"on": True, "ready": False, "text": f"AI: {model} · key missing",
-                "detail": f"No API key for {PROVIDERS[p].label}. Add one on the Model Lab page."}
-    test = ss.get("ai_test") or {}
+                "detail": f"No {PROVIDERS[p].key_env} is set where the app runs, so the agents use their rules."}
     return {"on": True, "ready": True, "text": f"AI: {model}", "where": where,
-            "tested": test.get("ok") if test.get("model") == model and test.get("provider") == p else None,
-            "detail": f"{PROVIDERS[p].label}, key {where}." if PROVIDERS[p].key_env else PROVIDERS[p].label}
-
-
-def ai_test_cb() -> None:
-    ss = st.session_state
-    r = reasoner()
-    out = r.test_connection() if hasattr(r, "test_connection") else {"ok": True, "message": "Rules need no connection."}
-    ss["ai_test"] = {**out, "provider": ss.get("ai_provider"), "model": ss.get("ai_model")}
+            "detail": f"{PROVIDERS[p].label}." if PROVIDERS[p].key_env else PROVIDERS[p].label}
 
 
 def brain_signature() -> str:

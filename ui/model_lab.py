@@ -10,7 +10,7 @@ from pitwall.ml import tyre_model as tm
 
 from . import charts
 from .help_text import h
-from .state import AI_CHOICES, AI_LABEL, ai_key, ai_status, ai_test_cb, on_ai_provider_change
+from .state import AI_LABEL, ai_status, on_ai_use_change
 from .styles import esc, kpis, section, tip
 
 
@@ -59,51 +59,20 @@ AI_ROLES = [
 def ai_section() -> None:
     ss = st.session_state
     s = ai_status()
-    test = ss.get("ai_test") or {}
-    state = ("Ready" if s["ready"] and s["on"] else "Key missing" if s["on"] else "Off (rules)")
-    tested = s.get("tested")
+    configured = ss.get("ai_configured", "rules")
+    state = "On" if s["on"] and s["ready"] else "Not available" if s["on"] else "Off (rules)"
     md(kpis([("Agent brain", esc(state), "", "ai" if s["on"] and s["ready"] else "", h("ai_brain")),
-             ("Provider", esc(AI_LABEL.get(ss.get("ai_provider", "rules"), "").split(" (")[0]
-                              if s["on"] else "None"), "", "", ""),
-             ("Model", esc(ss.get("ai_model") if s["on"] else "–"), "", "", ""),
-             ("Connection test", "✓ passed" if tested else ("✕ failed" if tested is False else "not run"),
-              "", "good" if tested else "", "")], cols=4))
-    left, right = st.columns([1.05, 1], gap="large")
-    with left:
-        md(section("Choose the agents' brain", h("ai_brain"), first=True))
-        st.selectbox("AI model provider", AI_CHOICES, key="ai_provider", format_func=lambda k: AI_LABEL[k],
-                     on_change=on_ai_provider_change, help="Groq is recommended: free, fast and well known.")
-        p = ss.get("ai_provider", "rules")
-        if p in PROVIDERS:
-            prov = PROVIDERS[p]
-            st.text_input("Model name", key="ai_model", help="Suggested: " + ", ".join(prov.models))
-            st.caption(prov.note)
-            if prov.key_env:
-                key, where = ai_key()
-                st.text_input(f"API key ({prov.key_env})", key="ai_key_input", type="password",
-                              placeholder="paste your key here, or keep it in .streamlit/secrets.toml",
-                              help="Kept only in this browser session. For a permanent setup use secrets.toml "
-                                   "(see the steps on the right).")
-                st.caption(f"Key: {'found in ' + where if key else 'not set yet'}.")
-            else:
-                st.text_input("Ollama address", key="ai_ollama_url", help="Where Ollama is running.")
-            st.button("Test connection", key="ai_test_btn", on_click=ai_test_cb, type="primary",
-                      help="Sends one tiny request to the AI model.")
-            if test and test.get("provider") == p:
-                (st.success if test.get("ok") else st.error)(test.get("message", ""))
-        else:
-            st.info("The agents use their built-in rules. Pick Groq above to give them a real AI model.")
-    with right:
-        md(section("Get a free Groq key (2 minutes)", "Groq offers a free plan; no card is needed for it.", first=True))
-        md('<ol class="pw-steps">'
-           '<li>Open <b>console.groq.com</b> and sign in (Google, GitHub or email).</li>'
-           '<li>Go to <b>API Keys</b> → <b>Create API Key</b>, give it a name, and copy it (it starts with '
-           '<code>gsk_</code>).</li>'
-           '<li>Quick try: paste it in the box on the left and press <b>Test connection</b>.</li>'
-           '<li>Permanent: create the file <code>.streamlit/secrets.toml</code> in the project folder with one line: '
-           '<code>GROQ_API_KEY = "gsk_..."</code>, then restart the app. It will start with the AI switched on.</li>'
-           '<li>Never share the key or put it in the ZIP you hand in. On AWS, pass it as an environment variable.</li>'
-           '</ol>')
+             ("Provider", esc(AI_LABEL.get(configured, "").split(" (")[0] if configured != "rules" else "None"),
+              "", "", ""),
+             ("Model", esc(ss.get("ai_model") if configured != "rules" else "–"), "", "", "")], cols=3))
+    md(section("The agents' brain", h("ai_brain"), first=True))
+    if configured != "rules":
+        st.toggle(f"Use the AI model ({ss.get('ai_model')})", key="ai_use", on_change=on_ai_use_change,
+                  help="Off: the agents use their fixed rules, so the same input always gives the same answer. "
+                       "Handy for comparing the AI's call with the rules' call.")
+    else:
+        st.info("No AI model is set up for this site, so the agents use their built-in rules. Every feature "
+                "still works.")
     md(section("What the AI model does, and what keeps it safe", h("ai_brain")))
     cols = st.columns(3)
     for i, (agent, brain, job, guard) in enumerate(AI_ROLES):

@@ -329,7 +329,7 @@ class LLMReasoner:
         return self.write("You are a concise Formula 1 race engineer.", prompt, purpose="rewrite")
 
     def test_connection(self) -> Dict[str, Any]:
-        """Send one tiny request and report what happened (used by the 'Test connection' button)."""
+        """Send one tiny request and report what happened (handy for checking a key from Python)."""
         if not self.available():
             return {"ok": False, "message": self.last_error}
         data = self.ask_json("Reply with JSON only.", 'Return {"ok": true, "team_radio": "<five words>"}',
