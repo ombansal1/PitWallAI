@@ -1,0 +1,17 @@
+# docker compose up -d --build   (reads the API key from a .env file next to this file)
+services:
+  pitwall:
+    build: .
+    image: pitwall-ai
+    ports:
+      - "80:8501"            # open http://<server-address>/
+    env_file:
+      - path: .env
+        required: false      # no .env = the agents use their rules
+    volumes:
+      - decisions:/app/data/decisions   # decision records survive restarts and rebuilds
+      - fastf1_cache:/app/data/fastf1_cache   # races downloaded with FastF1 are kept too
+    restart: unless-stopped
+volumes:
+  decisions:
+  fastf1_cache:

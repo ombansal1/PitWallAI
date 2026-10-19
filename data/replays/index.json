@@ -1,0 +1,1332 @@
+{
+ "source": "Real timing data (FastF1-derived) from the TracingInsights archive on GitHub, MIT licence. Historical replay, not a live feed.",
+ "licence": "MIT (TracingInsights archive)",
+ "races": [
+  {
+   "id": "2019_australian_grand_prix",
+   "year": 2019,
+   "event": "Australian Grand Prix",
+   "date": "2019-03-17",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2019_bahrain_grand_prix",
+   "year": 2019,
+   "event": "Bahrain Grand Prix",
+   "date": "2019-03-31",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2019_chinese_grand_prix",
+   "year": 2019,
+   "event": "Chinese Grand Prix",
+   "date": "2019-04-14",
+   "laps": 56,
+   "drivers": 20
+  },
+  {
+   "id": "2019_azerbaijan_grand_prix",
+   "year": 2019,
+   "event": "Azerbaijan Grand Prix",
+   "date": "2019-04-28",
+   "laps": 51,
+   "drivers": 20
+  },
+  {
+   "id": "2019_canadian_grand_prix",
+   "year": 2019,
+   "event": "Canadian Grand Prix",
+   "date": "2019-06-09",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2019_french_grand_prix",
+   "year": 2019,
+   "event": "French Grand Prix",
+   "date": "2019-06-23",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2019_austrian_grand_prix",
+   "year": 2019,
+   "event": "Austrian Grand Prix",
+   "date": "2019-06-30",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2019_british_grand_prix",
+   "year": 2019,
+   "event": "British Grand Prix",
+   "date": "2019-07-14",
+   "laps": 52,
+   "drivers": 20
+  },
+  {
+   "id": "2019_german_grand_prix",
+   "year": 2019,
+   "event": "German Grand Prix",
+   "date": "2019-07-28",
+   "laps": 64,
+   "drivers": 20
+  },
+  {
+   "id": "2019_hungarian_grand_prix",
+   "year": 2019,
+   "event": "Hungarian Grand Prix",
+   "date": "2019-08-04",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2019_belgian_grand_prix",
+   "year": 2019,
+   "event": "Belgian Grand Prix",
+   "date": "2019-09-01",
+   "laps": 44,
+   "drivers": 20
+  },
+  {
+   "id": "2019_italian_grand_prix",
+   "year": 2019,
+   "event": "Italian Grand Prix",
+   "date": "2019-09-08",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2019_japanese_grand_prix",
+   "year": 2019,
+   "event": "Japanese Grand Prix",
+   "date": "2019-10-13",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2019_brazilian_grand_prix",
+   "year": 2019,
+   "event": "Brazilian Grand Prix",
+   "date": "2019-11-17",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2019_abu_dhabi_grand_prix",
+   "year": 2019,
+   "event": "Abu Dhabi Grand Prix",
+   "date": "2019-12-01",
+   "laps": 55,
+   "drivers": 20
+  },
+  {
+   "id": "2020_austrian_grand_prix",
+   "year": 2020,
+   "event": "Austrian Grand Prix",
+   "date": "2020-07-05",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2020_styrian_grand_prix",
+   "year": 2020,
+   "event": "Styrian Grand Prix",
+   "date": "2020-07-12",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2020_hungarian_grand_prix",
+   "year": 2020,
+   "event": "Hungarian Grand Prix",
+   "date": "2020-07-19",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2020_british_grand_prix",
+   "year": 2020,
+   "event": "British Grand Prix",
+   "date": "2020-08-02",
+   "laps": 52,
+   "drivers": 20
+  },
+  {
+   "id": "2020_70th_anniversary_grand_prix",
+   "year": 2020,
+   "event": "70th Anniversary Grand Prix",
+   "date": "2020-08-09",
+   "laps": 52,
+   "drivers": 20
+  },
+  {
+   "id": "2020_spanish_grand_prix",
+   "year": 2020,
+   "event": "Spanish Grand Prix",
+   "date": "2020-08-16",
+   "laps": 66,
+   "drivers": 20
+  },
+  {
+   "id": "2020_belgian_grand_prix",
+   "year": 2020,
+   "event": "Belgian Grand Prix",
+   "date": "2020-08-30",
+   "laps": 44,
+   "drivers": 20
+  },
+  {
+   "id": "2020_italian_grand_prix",
+   "year": 2020,
+   "event": "Italian Grand Prix",
+   "date": "2020-09-06",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2020_tuscan_grand_prix",
+   "year": 2020,
+   "event": "Tuscan Grand Prix",
+   "date": "2020-09-13",
+   "laps": 59,
+   "drivers": 20
+  },
+  {
+   "id": "2020_russian_grand_prix",
+   "year": 2020,
+   "event": "Russian Grand Prix",
+   "date": "2020-09-27",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2020_eifel_grand_prix",
+   "year": 2020,
+   "event": "Eifel Grand Prix",
+   "date": "2020-10-11",
+   "laps": 60,
+   "drivers": 20
+  },
+  {
+   "id": "2020_portuguese_grand_prix",
+   "year": 2020,
+   "event": "Portuguese Grand Prix",
+   "date": "2020-10-25",
+   "laps": 66,
+   "drivers": 20
+  },
+  {
+   "id": "2020_emilia_romagna_grand_prix",
+   "year": 2020,
+   "event": "Emilia Romagna Grand Prix",
+   "date": "2020-11-01",
+   "laps": 63,
+   "drivers": 20
+  },
+  {
+   "id": "2020_turkish_grand_prix",
+   "year": 2020,
+   "event": "Turkish Grand Prix",
+   "date": "2020-11-15",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2020_bahrain_grand_prix",
+   "year": 2020,
+   "event": "Bahrain Grand Prix",
+   "date": "2020-11-29",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2020_sakhir_grand_prix",
+   "year": 2020,
+   "event": "Sakhir Grand Prix",
+   "date": "2020-12-06",
+   "laps": 87,
+   "drivers": 20
+  },
+  {
+   "id": "2020_abu_dhabi_grand_prix",
+   "year": 2020,
+   "event": "Abu Dhabi Grand Prix",
+   "date": "2020-12-13",
+   "laps": 55,
+   "drivers": 20
+  },
+  {
+   "id": "2021_bahrain_grand_prix",
+   "year": 2021,
+   "event": "Bahrain Grand Prix",
+   "date": "2021-03-28",
+   "laps": 56,
+   "drivers": 20
+  },
+  {
+   "id": "2021_emilia_romagna_grand_prix",
+   "year": 2021,
+   "event": "Emilia Romagna Grand Prix",
+   "date": "2021-04-18",
+   "laps": 63,
+   "drivers": 20
+  },
+  {
+   "id": "2021_portuguese_grand_prix",
+   "year": 2021,
+   "event": "Portuguese Grand Prix",
+   "date": "2021-05-02",
+   "laps": 66,
+   "drivers": 20
+  },
+  {
+   "id": "2021_spanish_grand_prix",
+   "year": 2021,
+   "event": "Spanish Grand Prix",
+   "date": "2021-05-09",
+   "laps": 66,
+   "drivers": 20
+  },
+  {
+   "id": "2021_monaco_grand_prix",
+   "year": 2021,
+   "event": "Monaco Grand Prix",
+   "date": "2021-05-23",
+   "laps": 78,
+   "drivers": 20
+  },
+  {
+   "id": "2021_azerbaijan_grand_prix",
+   "year": 2021,
+   "event": "Azerbaijan Grand Prix",
+   "date": "2021-06-06",
+   "laps": 51,
+   "drivers": 20
+  },
+  {
+   "id": "2021_french_grand_prix",
+   "year": 2021,
+   "event": "French Grand Prix",
+   "date": "2021-06-20",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2021_styrian_grand_prix",
+   "year": 2021,
+   "event": "Styrian Grand Prix",
+   "date": "2021-06-27",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2021_austrian_grand_prix",
+   "year": 2021,
+   "event": "Austrian Grand Prix",
+   "date": "2021-07-04",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2021_british_grand_prix",
+   "year": 2021,
+   "event": "British Grand Prix",
+   "date": "2021-07-18",
+   "laps": 52,
+   "drivers": 20
+  },
+  {
+   "id": "2021_hungarian_grand_prix",
+   "year": 2021,
+   "event": "Hungarian Grand Prix",
+   "date": "2021-08-01",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2021_dutch_grand_prix",
+   "year": 2021,
+   "event": "Dutch Grand Prix",
+   "date": "2021-09-05",
+   "laps": 72,
+   "drivers": 20
+  },
+  {
+   "id": "2021_italian_grand_prix",
+   "year": 2021,
+   "event": "Italian Grand Prix",
+   "date": "2021-09-12",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2021_russian_grand_prix",
+   "year": 2021,
+   "event": "Russian Grand Prix",
+   "date": "2021-09-26",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2021_turkish_grand_prix",
+   "year": 2021,
+   "event": "Turkish Grand Prix",
+   "date": "2021-10-10",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2021_united_states_grand_prix",
+   "year": 2021,
+   "event": "United States Grand Prix",
+   "date": "2021-10-24",
+   "laps": 56,
+   "drivers": 20
+  },
+  {
+   "id": "2021_mexico_city_grand_prix",
+   "year": 2021,
+   "event": "Mexico City Grand Prix",
+   "date": "2021-11-07",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2021_sao_paulo_grand_prix",
+   "year": 2021,
+   "event": "São Paulo Grand Prix",
+   "date": "2021-11-14",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2021_qatar_grand_prix",
+   "year": 2021,
+   "event": "Qatar Grand Prix",
+   "date": "2021-11-21",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2021_saudi_arabian_grand_prix",
+   "year": 2021,
+   "event": "Saudi Arabian Grand Prix",
+   "date": "2021-12-05",
+   "laps": 50,
+   "drivers": 20
+  },
+  {
+   "id": "2021_abu_dhabi_grand_prix",
+   "year": 2021,
+   "event": "Abu Dhabi Grand Prix",
+   "date": "2021-12-12",
+   "laps": 58,
+   "drivers": 19
+  },
+  {
+   "id": "2022_bahrain_grand_prix",
+   "year": 2022,
+   "event": "Bahrain Grand Prix",
+   "date": "2022-03-20",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2022_saudi_arabian_grand_prix",
+   "year": 2022,
+   "event": "Saudi Arabian Grand Prix",
+   "date": "2022-03-27",
+   "laps": 50,
+   "drivers": 18
+  },
+  {
+   "id": "2022_australian_grand_prix",
+   "year": 2022,
+   "event": "Australian Grand Prix",
+   "date": "2022-04-10",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2022_emilia_romagna_grand_prix",
+   "year": 2022,
+   "event": "Emilia Romagna Grand Prix",
+   "date": "2022-04-24",
+   "laps": 63,
+   "drivers": 20
+  },
+  {
+   "id": "2022_miami_grand_prix",
+   "year": 2022,
+   "event": "Miami Grand Prix",
+   "date": "2022-05-08",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2022_spanish_grand_prix",
+   "year": 2022,
+   "event": "Spanish Grand Prix",
+   "date": "2022-05-22",
+   "laps": 66,
+   "drivers": 20
+  },
+  {
+   "id": "2022_monaco_grand_prix",
+   "year": 2022,
+   "event": "Monaco Grand Prix",
+   "date": "2022-05-29",
+   "laps": 64,
+   "drivers": 20
+  },
+  {
+   "id": "2022_azerbaijan_grand_prix",
+   "year": 2022,
+   "event": "Azerbaijan Grand Prix",
+   "date": "2022-06-12",
+   "laps": 51,
+   "drivers": 20
+  },
+  {
+   "id": "2022_canadian_grand_prix",
+   "year": 2022,
+   "event": "Canadian Grand Prix",
+   "date": "2022-06-19",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2022_british_grand_prix",
+   "year": 2022,
+   "event": "British Grand Prix",
+   "date": "2022-07-03",
+   "laps": 52,
+   "drivers": 20
+  },
+  {
+   "id": "2022_austrian_grand_prix",
+   "year": 2022,
+   "event": "Austrian Grand Prix",
+   "date": "2022-07-10",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2022_french_grand_prix",
+   "year": 2022,
+   "event": "French Grand Prix",
+   "date": "2022-07-24",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2022_hungarian_grand_prix",
+   "year": 2022,
+   "event": "Hungarian Grand Prix",
+   "date": "2022-07-31",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2022_belgian_grand_prix",
+   "year": 2022,
+   "event": "Belgian Grand Prix",
+   "date": "2022-08-28",
+   "laps": 44,
+   "drivers": 20
+  },
+  {
+   "id": "2022_dutch_grand_prix",
+   "year": 2022,
+   "event": "Dutch Grand Prix",
+   "date": "2022-09-04",
+   "laps": 72,
+   "drivers": 20
+  },
+  {
+   "id": "2022_italian_grand_prix",
+   "year": 2022,
+   "event": "Italian Grand Prix",
+   "date": "2022-09-11",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2022_singapore_grand_prix",
+   "year": 2022,
+   "event": "Singapore Grand Prix",
+   "date": "2022-10-02",
+   "laps": 59,
+   "drivers": 20
+  },
+  {
+   "id": "2022_japanese_grand_prix",
+   "year": 2022,
+   "event": "Japanese Grand Prix",
+   "date": "2022-10-09",
+   "laps": 29,
+   "drivers": 20
+  },
+  {
+   "id": "2022_united_states_grand_prix",
+   "year": 2022,
+   "event": "United States Grand Prix",
+   "date": "2022-10-23",
+   "laps": 56,
+   "drivers": 20
+  },
+  {
+   "id": "2022_mexico_city_grand_prix",
+   "year": 2022,
+   "event": "Mexico City Grand Prix",
+   "date": "2022-10-30",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2022_sao_paulo_grand_prix",
+   "year": 2022,
+   "event": "São Paulo Grand Prix",
+   "date": "2022-11-13",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2022_abu_dhabi_grand_prix",
+   "year": 2022,
+   "event": "Abu Dhabi Grand Prix",
+   "date": "2022-11-20",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2023_bahrain_grand_prix",
+   "year": 2023,
+   "event": "Bahrain Grand Prix",
+   "date": "2023-03-05",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2023_saudi_arabian_grand_prix",
+   "year": 2023,
+   "event": "Saudi Arabian Grand Prix",
+   "date": "2023-03-19",
+   "laps": 50,
+   "drivers": 20
+  },
+  {
+   "id": "2023_australian_grand_prix",
+   "year": 2023,
+   "event": "Australian Grand Prix",
+   "date": "2023-04-02",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2023_azerbaijan_grand_prix",
+   "year": 2023,
+   "event": "Azerbaijan Grand Prix",
+   "date": "2023-04-30",
+   "laps": 51,
+   "drivers": 20
+  },
+  {
+   "id": "2023_miami_grand_prix",
+   "year": 2023,
+   "event": "Miami Grand Prix",
+   "date": "2023-05-07",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2023_monaco_grand_prix",
+   "year": 2023,
+   "event": "Monaco Grand Prix",
+   "date": "2023-05-28",
+   "laps": 78,
+   "drivers": 20
+  },
+  {
+   "id": "2023_spanish_grand_prix",
+   "year": 2023,
+   "event": "Spanish Grand Prix",
+   "date": "2023-06-04",
+   "laps": 66,
+   "drivers": 20
+  },
+  {
+   "id": "2023_canadian_grand_prix",
+   "year": 2023,
+   "event": "Canadian Grand Prix",
+   "date": "2023-06-18",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2023_austrian_grand_prix",
+   "year": 2023,
+   "event": "Austrian Grand Prix",
+   "date": "2023-07-02",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2023_british_grand_prix",
+   "year": 2023,
+   "event": "British Grand Prix",
+   "date": "2023-07-09",
+   "laps": 52,
+   "drivers": 20
+  },
+  {
+   "id": "2023_hungarian_grand_prix",
+   "year": 2023,
+   "event": "Hungarian Grand Prix",
+   "date": "2023-07-23",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2023_belgian_grand_prix",
+   "year": 2023,
+   "event": "Belgian Grand Prix",
+   "date": "2023-07-30",
+   "laps": 44,
+   "drivers": 20
+  },
+  {
+   "id": "2023_dutch_grand_prix",
+   "year": 2023,
+   "event": "Dutch Grand Prix",
+   "date": "2023-08-27",
+   "laps": 72,
+   "drivers": 20
+  },
+  {
+   "id": "2023_italian_grand_prix",
+   "year": 2023,
+   "event": "Italian Grand Prix",
+   "date": "2023-09-03",
+   "laps": 51,
+   "drivers": 20
+  },
+  {
+   "id": "2023_singapore_grand_prix",
+   "year": 2023,
+   "event": "Singapore Grand Prix",
+   "date": "2023-09-17",
+   "laps": 62,
+   "drivers": 19
+  },
+  {
+   "id": "2023_japanese_grand_prix",
+   "year": 2023,
+   "event": "Japanese Grand Prix",
+   "date": "2023-09-24",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2023_qatar_grand_prix",
+   "year": 2023,
+   "event": "Qatar Grand Prix",
+   "date": "2023-10-08",
+   "laps": 57,
+   "drivers": 19
+  },
+  {
+   "id": "2023_united_states_grand_prix",
+   "year": 2023,
+   "event": "United States Grand Prix",
+   "date": "2023-10-22",
+   "laps": 56,
+   "drivers": 20
+  },
+  {
+   "id": "2023_mexico_city_grand_prix",
+   "year": 2023,
+   "event": "Mexico City Grand Prix",
+   "date": "2023-10-29",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2023_sao_paulo_grand_prix",
+   "year": 2023,
+   "event": "São Paulo Grand Prix",
+   "date": "2023-11-05",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2023_las_vegas_grand_prix",
+   "year": 2023,
+   "event": "Las Vegas Grand Prix",
+   "date": "2023-11-19",
+   "laps": 50,
+   "drivers": 20
+  },
+  {
+   "id": "2023_abu_dhabi_grand_prix",
+   "year": 2023,
+   "event": "Abu Dhabi Grand Prix",
+   "date": "2023-11-26",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2024_bahrain_grand_prix",
+   "year": 2024,
+   "event": "Bahrain Grand Prix",
+   "date": "2024-03-02",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2024_saudi_arabian_grand_prix",
+   "year": 2024,
+   "event": "Saudi Arabian Grand Prix",
+   "date": "2024-03-09",
+   "laps": 50,
+   "drivers": 20
+  },
+  {
+   "id": "2024_australian_grand_prix",
+   "year": 2024,
+   "event": "Australian Grand Prix",
+   "date": "2024-03-24",
+   "laps": 58,
+   "drivers": 19
+  },
+  {
+   "id": "2024_japanese_grand_prix",
+   "year": 2024,
+   "event": "Japanese Grand Prix",
+   "date": "2024-04-07",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2024_chinese_grand_prix",
+   "year": 2024,
+   "event": "Chinese Grand Prix",
+   "date": "2024-04-21",
+   "laps": 56,
+   "drivers": 20
+  },
+  {
+   "id": "2024_miami_grand_prix",
+   "year": 2024,
+   "event": "Miami Grand Prix",
+   "date": "2024-05-05",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2024_emilia_romagna_grand_prix",
+   "year": 2024,
+   "event": "Emilia Romagna Grand Prix",
+   "date": "2024-05-19",
+   "laps": 63,
+   "drivers": 20
+  },
+  {
+   "id": "2024_monaco_grand_prix",
+   "year": 2024,
+   "event": "Monaco Grand Prix",
+   "date": "2024-05-26",
+   "laps": 78,
+   "drivers": 20
+  },
+  {
+   "id": "2024_canadian_grand_prix",
+   "year": 2024,
+   "event": "Canadian Grand Prix",
+   "date": "2024-06-09",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2024_spanish_grand_prix",
+   "year": 2024,
+   "event": "Spanish Grand Prix",
+   "date": "2024-06-23",
+   "laps": 66,
+   "drivers": 20
+  },
+  {
+   "id": "2024_austrian_grand_prix",
+   "year": 2024,
+   "event": "Austrian Grand Prix",
+   "date": "2024-06-30",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2024_british_grand_prix",
+   "year": 2024,
+   "event": "British Grand Prix",
+   "date": "2024-07-07",
+   "laps": 52,
+   "drivers": 20
+  },
+  {
+   "id": "2024_hungarian_grand_prix",
+   "year": 2024,
+   "event": "Hungarian Grand Prix",
+   "date": "2024-07-21",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2024_belgian_grand_prix",
+   "year": 2024,
+   "event": "Belgian Grand Prix",
+   "date": "2024-07-28",
+   "laps": 44,
+   "drivers": 20
+  },
+  {
+   "id": "2024_dutch_grand_prix",
+   "year": 2024,
+   "event": "Dutch Grand Prix",
+   "date": "2024-08-25",
+   "laps": 72,
+   "drivers": 20
+  },
+  {
+   "id": "2024_italian_grand_prix",
+   "year": 2024,
+   "event": "Italian Grand Prix",
+   "date": "2024-09-01",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2024_azerbaijan_grand_prix",
+   "year": 2024,
+   "event": "Azerbaijan Grand Prix",
+   "date": "2024-09-15",
+   "laps": 51,
+   "drivers": 20
+  },
+  {
+   "id": "2024_singapore_grand_prix",
+   "year": 2024,
+   "event": "Singapore Grand Prix",
+   "date": "2024-09-22",
+   "laps": 62,
+   "drivers": 20
+  },
+  {
+   "id": "2024_united_states_grand_prix",
+   "year": 2024,
+   "event": "United States Grand Prix",
+   "date": "2024-10-20",
+   "laps": 56,
+   "drivers": 20
+  },
+  {
+   "id": "2024_mexico_city_grand_prix",
+   "year": 2024,
+   "event": "Mexico City Grand Prix",
+   "date": "2024-10-27",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2024_sao_paulo_grand_prix",
+   "year": 2024,
+   "event": "São Paulo Grand Prix",
+   "date": "2024-11-03",
+   "laps": 69,
+   "drivers": 19
+  },
+  {
+   "id": "2024_las_vegas_grand_prix",
+   "year": 2024,
+   "event": "Las Vegas Grand Prix",
+   "date": "2024-11-24",
+   "laps": 50,
+   "drivers": 20
+  },
+  {
+   "id": "2024_qatar_grand_prix",
+   "year": 2024,
+   "event": "Qatar Grand Prix",
+   "date": "2024-12-01",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2024_abu_dhabi_grand_prix",
+   "year": 2024,
+   "event": "Abu Dhabi Grand Prix",
+   "date": "2024-12-08",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2025_australian_grand_prix",
+   "year": 2025,
+   "event": "Australian Grand Prix",
+   "date": "2025-03-16",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2025_chinese_grand_prix",
+   "year": 2025,
+   "event": "Chinese Grand Prix",
+   "date": "2025-03-23",
+   "laps": 56,
+   "drivers": 20
+  },
+  {
+   "id": "2025_japanese_grand_prix",
+   "year": 2025,
+   "event": "Japanese Grand Prix",
+   "date": "2025-04-06",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2025_bahrain_grand_prix",
+   "year": 2025,
+   "event": "Bahrain Grand Prix",
+   "date": "2025-04-13",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2025_saudi_arabian_grand_prix",
+   "year": 2025,
+   "event": "Saudi Arabian Grand Prix",
+   "date": "2025-04-20",
+   "laps": 50,
+   "drivers": 20
+  },
+  {
+   "id": "2025_miami_grand_prix",
+   "year": 2025,
+   "event": "Miami Grand Prix",
+   "date": "2025-05-04",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2025_emilia_romagna_grand_prix",
+   "year": 2025,
+   "event": "Emilia Romagna Grand Prix",
+   "date": "2025-05-18",
+   "laps": 63,
+   "drivers": 20
+  },
+  {
+   "id": "2025_monaco_grand_prix",
+   "year": 2025,
+   "event": "Monaco Grand Prix",
+   "date": "2025-05-25",
+   "laps": 78,
+   "drivers": 20
+  },
+  {
+   "id": "2025_spanish_grand_prix",
+   "year": 2025,
+   "event": "Spanish Grand Prix",
+   "date": "2025-06-01",
+   "laps": 66,
+   "drivers": 19
+  },
+  {
+   "id": "2025_canadian_grand_prix",
+   "year": 2025,
+   "event": "Canadian Grand Prix",
+   "date": "2025-06-15",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2025_austrian_grand_prix",
+   "year": 2025,
+   "event": "Austrian Grand Prix",
+   "date": "2025-06-29",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2025_british_grand_prix",
+   "year": 2025,
+   "event": "British Grand Prix",
+   "date": "2025-07-06",
+   "laps": 52,
+   "drivers": 20
+  },
+  {
+   "id": "2025_belgian_grand_prix",
+   "year": 2025,
+   "event": "Belgian Grand Prix",
+   "date": "2025-07-27",
+   "laps": 44,
+   "drivers": 20
+  },
+  {
+   "id": "2025_hungarian_grand_prix",
+   "year": 2025,
+   "event": "Hungarian Grand Prix",
+   "date": "2025-08-03",
+   "laps": 70,
+   "drivers": 20
+  },
+  {
+   "id": "2025_dutch_grand_prix",
+   "year": 2025,
+   "event": "Dutch Grand Prix",
+   "date": "2025-08-31",
+   "laps": 72,
+   "drivers": 20
+  },
+  {
+   "id": "2025_italian_grand_prix",
+   "year": 2025,
+   "event": "Italian Grand Prix",
+   "date": "2025-09-07",
+   "laps": 53,
+   "drivers": 20
+  },
+  {
+   "id": "2025_azerbaijan_grand_prix",
+   "year": 2025,
+   "event": "Azerbaijan Grand Prix",
+   "date": "2025-09-21",
+   "laps": 51,
+   "drivers": 20
+  },
+  {
+   "id": "2025_singapore_grand_prix",
+   "year": 2025,
+   "event": "Singapore Grand Prix",
+   "date": "2025-10-05",
+   "laps": 62,
+   "drivers": 20
+  },
+  {
+   "id": "2025_united_states_grand_prix",
+   "year": 2025,
+   "event": "United States Grand Prix",
+   "date": "2025-10-19",
+   "laps": 56,
+   "drivers": 20
+  },
+  {
+   "id": "2025_mexico_city_grand_prix",
+   "year": 2025,
+   "event": "Mexico City Grand Prix",
+   "date": "2025-10-26",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2025_sao_paulo_grand_prix",
+   "year": 2025,
+   "event": "São Paulo Grand Prix",
+   "date": "2025-11-09",
+   "laps": 71,
+   "drivers": 20
+  },
+  {
+   "id": "2025_las_vegas_grand_prix",
+   "year": 2025,
+   "event": "Las Vegas Grand Prix",
+   "date": "2025-11-23",
+   "laps": 50,
+   "drivers": 20
+  },
+  {
+   "id": "2025_qatar_grand_prix",
+   "year": 2025,
+   "event": "Qatar Grand Prix",
+   "date": "2025-11-30",
+   "laps": 57,
+   "drivers": 20
+  },
+  {
+   "id": "2025_abu_dhabi_grand_prix",
+   "year": 2025,
+   "event": "Abu Dhabi Grand Prix",
+   "date": "2025-12-07",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2026_australian_grand_prix",
+   "year": 2026,
+   "event": "Australian Grand Prix",
+   "date": "2026-03-08",
+   "laps": 58,
+   "drivers": 20
+  },
+  {
+   "id": "2026_chinese_grand_prix",
+   "year": 2026,
+   "event": "Chinese Grand Prix",
+   "date": "2026-03-15",
+   "laps": 56,
+   "drivers": 18
+  },
+  {
+   "id": "2026_japanese_grand_prix",
+   "year": 2026,
+   "event": "Japanese Grand Prix",
+   "date": "2026-03-29",
+   "laps": 53,
+   "drivers": 22
+  },
+  {
+   "id": "2026_miami_grand_prix",
+   "year": 2026,
+   "event": "Miami Grand Prix",
+   "date": "2026-05-03",
+   "laps": 57,
+   "drivers": 22
+  },
+  {
+   "id": "2026_canadian_grand_prix",
+   "year": 2026,
+   "event": "Canadian Grand Prix",
+   "date": "2026-05-24",
+   "laps": 68,
+   "drivers": 21
+  },
+  {
+   "id": "2026_monaco_grand_prix",
+   "year": 2026,
+   "event": "Monaco Grand Prix",
+   "date": "2026-06-07",
+   "laps": 78,
+   "drivers": 22
+  },
+  {
+   "id": "2026_barcelona_grand_prix",
+   "year": 2026,
+   "event": "Barcelona Grand Prix",
+   "date": "2026-06-14",
+   "laps": 66,
+   "drivers": 22
+  },
+  {
+   "id": "2026_austrian_grand_prix",
+   "year": 2026,
+   "event": "Austrian Grand Prix",
+   "date": "2026-06-28",
+   "laps": 71,
+   "drivers": 22
+  },
+  {
+   "id": "2026_british_grand_prix",
+   "year": 2026,
+   "event": "British Grand Prix",
+   "date": "2026-07-05",
+   "laps": 52,
+   "drivers": 22
+  },
+  {
+   "id": "2026_belgian_grand_prix",
+   "year": 2026,
+   "event": "Belgian Grand Prix",
+   "date": "2026-07-19",
+   "laps": 44,
+   "drivers": 22
+  },
+  {
+   "id": "2026_hungarian_grand_prix",
+   "year": 2026,
+   "event": "Hungarian Grand Prix",
+   "date": "2026-07-26",
+   "laps": 70,
+   "drivers": 22
+  },
+  {
+   "id": "2026_dutch_grand_prix",
+   "year": 2026,
+   "event": "Dutch Grand Prix",
+   "date": "2026-08-23",
+   "laps": 72,
+   "drivers": 22
+  },
+  {
+   "id": "2026_italian_grand_prix",
+   "year": 2026,
+   "event": "Italian Grand Prix",
+   "date": "2026-09-06",
+   "laps": 53,
+   "drivers": 22
+  },
+  {
+   "id": "2026_spanish_grand_prix",
+   "year": 2026,
+   "event": "Spanish Grand Prix",
+   "date": "2026-09-13",
+   "laps": 57,
+   "drivers": 22
+  },
+  {
+   "id": "2026_azerbaijan_grand_prix",
+   "year": 2026,
+   "event": "Azerbaijan Grand Prix",
+   "date": "2026-09-26",
+   "laps": 51,
+   "drivers": 22
+  },
+  {
+   "id": "2026_bahrain_grand_prix",
+   "year": 2026,
+   "event": "Bahrain Grand Prix",
+   "date": "2026-10-04",
+   "laps": 55,
+   "drivers": 22
+  },
+  {
+   "id": "2026_singapore_grand_prix",
+   "year": 2026,
+   "event": "Singapore Grand Prix",
+   "date": "2026-10-11",
+   "laps": 62,
+   "drivers": 22
+  }
+ ],
+ "skipped": [
+  "2018 Abu Dhabi Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Australian Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Austrian Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Azerbaijan Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Bahrain Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Belgian Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Brazilian Grand Prix: year excluded (unreliable tyre data)",
+  "2018 British Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Canadian Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Chinese Grand Prix: year excluded (unreliable tyre data)",
+  "2018 French Grand Prix: year excluded (unreliable tyre data)",
+  "2018 German Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Hungarian Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Italian Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Japanese Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Mexican Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Monaco Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Russian Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Singapore Grand Prix: year excluded (unreliable tyre data)",
+  "2018 Spanish Grand Prix: year excluded (unreliable tyre data)",
+  "2018 United States Grand Prix: year excluded (unreliable tyre data)",
+  "2019 Mexican Grand Prix: 2019 Mexican Grand Prix: lap file is missing fields ['stint', 'life', 'pos', 'status', 'sesT', 'drv', 'pin', 'pout']",
+  "2019 Monaco Grand Prix: 2019 Monaco Grand Prix: lap file is missing fields ['stint', 'life', 'pos', 'status', 'sesT', 'drv', 'pin', 'pout']",
+  "2019 Russian Grand Prix: 2019 Russian Grand Prix: lap file is missing fields ['stint', 'life', 'pos', 'status', 'sesT', 'drv', 'pin', 'pout']",
+  "2019 Singapore Grand Prix: 2019 Singapore Grand Prix: lap file is missing fields ['stint', 'life', 'pos', 'status', 'sesT', 'drv', 'pin', 'pout']",
+  "2019 Spanish Grand Prix: 2019 Spanish Grand Prix: lap file is missing fields ['stint', 'life', 'pos', 'status', 'sesT', 'drv', 'pin', 'pout']",
+  "2019 United States Grand Prix: 2019 United States Grand Prix: lap file is missing fields ['stint', 'life', 'pos', 'status', 'sesT', 'drv', 'pin', 'pout']",
+  "2021 Belgian Grand Prix: 2021 Belgian Grand Prix: only 60 laps of timing data"
+ ]
+}

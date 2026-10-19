@@ -1,0 +1,10 @@
+.venv/
+venv/
+**/__pycache__/
+.pytest_cache/
+.git/
+.env
+.streamlit/secrets.toml
+data/decisions/*.jsonl
+data/fastf1_cache/
+*.zip

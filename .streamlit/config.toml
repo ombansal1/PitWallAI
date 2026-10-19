@@ -1,0 +1,23 @@
+[theme]
+base = "dark"
+primaryColor = "#B37BFF"
+backgroundColor = "#0F161F"
+secondaryBackgroundColor = "#17212D"
+textColor = "#EEF2F7"
+borderColor = "#2B3A4D"
+font = "Titillium Web:https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap, sans-serif"
+baseRadius = "8px"
+
+[theme.sidebar]
+backgroundColor = "#131C27"
+
+[client]
+# "viewer" hides the Deploy button and developer menu items (rerun/clear cache stay automatic).
+toolbarMode = "viewer"
+
+[server]
+headless = true
+runOnSave = false
+
+[browser]
+gatherUsageStats = false

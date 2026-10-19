@@ -1,0 +1,2 @@
+# Optional: historical replay from FastF1 (downloads timing data on first use; cached in data/fastf1_cache)
+fastf1>=3.4,<4.0
