@@ -184,7 +184,7 @@ def about() -> None:
     with a:
         md(section("Architecture", h("agents"), first=True))
         md('<div class="pw-formula">'
-           '<b>Streamlit UI</b> (8 pages) → <b>Orchestrator</b> (shared workspace, routing, max 2 revisions)<br>'
+           '<b>Web app</b> (8 pages) → <b>Orchestrator</b> (shared workspace, routing, max 2 revisions)<br>'
            '→ 🧭 Planner <span class="pw-chip ai">AI model</span> → 🔎 Race Research <span class="pw-chip">Python</span>'
            ' → ⚙️ Executor <span class="pw-chip">simulator + ML tyres</span><br>'
            '→ 🛡️ Critic <span class="pw-chip">rules</span> ↺ back to Planner/Executor → 📋 Operations '

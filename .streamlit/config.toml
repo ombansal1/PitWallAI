@@ -12,8 +12,8 @@ baseRadius = "8px"
 backgroundColor = "#131C27"
 
 [client]
-# "viewer" hides the Deploy button and developer menu items (rerun/clear cache stay automatic).
-toolbarMode = "viewer"
+# "minimal" removes the Deploy button and the built-in menu items; the menu itself is hidden in ui/styles.py.
+toolbarMode = "minimal"
 
 [server]
 headless = true

@@ -12,6 +12,10 @@ WORKDIR /app
 COPY requirements.txt requirements-optional.txt ./
 RUN pip install --upgrade pip && pip install -r requirements.txt -r requirements-optional.txt
 
+# Browser tab shows "PitWall AI" (not the framework's name) for the split second before the app loads.
+RUN python -c "import streamlit, pathlib; p = pathlib.Path(streamlit.__file__).parent / 'static' / 'index.html'; \
+p.write_text(p.read_text(encoding='utf-8').replace('<title>Streamlit</title>', '<title>PitWall AI</title>'), encoding='utf-8')"
+
 COPY . .
 # Retrain the ML model if the installed scikit-learn differs from the one that saved it (takes ~15 s).
 RUN python -c "from pitwall.ml.tyre_model import load_model, train_and_save; load_model() or train_and_save()"

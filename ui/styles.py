@@ -29,6 +29,9 @@ p, li{line-height:1.55;}
 header[data-testid="stHeader"]{background:rgba(15,22,31,.92); backdrop-filter:blur(8px);
         border-bottom:1px solid var(--pw-line);}
 header[data-testid="stHeader"] a{font-weight:600;}
+/* no framework branding: hide the top-right menu ("Made with ..."), the running indicator and the decoration bar */
+#MainMenu, [data-testid="stMainMenu"], [data-testid="stStatusWidget"], [data-testid="stDecoration"],
+[data-testid="stAppDeployButton"], footer{display:none !important;}
 
 /* ---------- brand bar ---------- */
 .pw-brand{display:flex; align-items:center; gap:.8rem;}
